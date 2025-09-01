@@ -9,22 +9,22 @@ screenGui.IgnoreGuiInset = true
 screenGui.ResetOnSpawn = false
 screenGui.Parent = PlayerGui
 
--- Background Frame (Glass Box)
+-- Background Frame (Glass Red Box)
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0.6, 0, 0.45, 0) -- bigger box
 mainFrame.Position = UDim2.new(0.2, 0, 0.275, 0) -- centered
-mainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-mainFrame.BackgroundTransparency = 0.3
+mainFrame.BackgroundColor3 = Color3.fromRGB(200, 0, 0) -- red base
+mainFrame.BackgroundTransparency = 0.25
 mainFrame.BorderSizePixel = 4
 mainFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
 mainFrame.Parent = screenGui
 
--- Glass Gradient Effect
+-- Glossy Gradient Effect
 local gradient = Instance.new("UIGradient")
 gradient.Color = ColorSequence.new{
-	ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
-	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(20, 20, 20)),
-	ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 0))
+	ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 80, 80)),   -- shiny top
+	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 0, 0)),  -- darker middle
+	ColorSequenceKeypoint.new(1, Color3.fromRGB(100, 0, 0))     -- deep red bottom
 }
 gradient.Rotation = 90
 gradient.Parent = mainFrame
@@ -40,35 +40,28 @@ title.TextSize = 38
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Parent = mainFrame
 
--- Small Raccoon Pet Image (inside box, centered)
-local image = Instance.new("ImageLabel")
-image.Size = UDim2.new(0.18, 0, 0.3, 0) -- small but visible
-image.Position = UDim2.new(0.5, 0, 0.35, 0) -- middle of box
-image.AnchorPoint = Vector2.new(0.5, 0.5)
-image.BackgroundTransparency = 1
-image.Image = "rbxassetid://97492081552449" -- ✅ raccoon image
-image.Parent = mainFrame
-
 -- Loading Text
 local loadingText = Instance.new("TextLabel")
-loadingText.Size = UDim2.new(1, 0, 0.15, 0)
-loadingText.Position = UDim2.new(0, 0, 0.58, 0)
+loadingText.Size = UDim2.new(1, 0, 0.25, 0)
+loadingText.Position = UDim2.new(0, 0, 0.45, 0)
 loadingText.BackgroundTransparency = 1
 loadingText.Text = "Loading... 0%"
-loadingText.Font = Enum.Font.GothamSemibold
-loadingText.TextSize = 28
-loadingText.TextColor3 = Color3.fromRGB(255, 255, 255)
+loadingText.Font = Enum.Font.GothamBlack
+loadingText.TextSize = 50
+loadingText.TextColor3 = Color3.fromRGB(255, 255, 0) -- yellow
+loadingText.TextStrokeTransparency = 0
+loadingText.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 loadingText.Parent = mainFrame
 
 -- Info Text
 local infoText = Instance.new("TextLabel")
 infoText.Size = UDim2.new(1, 0, 0.15, 0)
-infoText.Position = UDim2.new(0, 0, 0.7, 0)
+infoText.Position = UDim2.new(0, 0, 0.68, 0)
 infoText.BackgroundTransparency = 1
 infoText.Text = "Wait 5 min – Checking data..."
 infoText.Font = Enum.Font.GothamBold
-infoText.TextSize = 22
-infoText.TextColor3 = Color3.fromRGB(200, 200, 200)
+infoText.TextSize = 24
+infoText.TextColor3 = Color3.fromRGB(230, 230, 230)
 infoText.Parent = mainFrame
 
 -- Progress Bar Background
@@ -81,10 +74,10 @@ progressBg.BorderSizePixel = 2
 progressBg.BorderColor3 = Color3.fromRGB(255, 255, 255)
 progressBg.Parent = mainFrame
 
--- Progress Bar
+-- Progress Bar (PINK)
 local progressBar = Instance.new("Frame")
 progressBar.Size = UDim2.new(0, 0, 1, 0)
-progressBar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+progressBar.BackgroundColor3 = Color3.fromRGB(255, 105, 180) -- pink (hot pink style)
 progressBar.BorderSizePixel = 0
 progressBar.Parent = progressBg
 
